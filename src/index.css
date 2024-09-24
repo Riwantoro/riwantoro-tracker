@@ -133,8 +133,10 @@ body.dark-mode .suggestion-item:hover {
   }
 
   .search-input {
-    font-size: 14px;
-    padding: 10px;
+    font-size: 16px; /* Maintain font size */
+    padding: 10px 10px 10px 35px; /* Adjusted padding for mobile */
+    max-width: 80%; /* Make input narrower */
+    border-radius: 20px; /* Slightly more rounded corners */
   }
 
   .suggestions {

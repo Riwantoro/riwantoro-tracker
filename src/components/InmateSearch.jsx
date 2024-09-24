@@ -13,7 +13,6 @@ const InmateSearch = ({ query, setQuery, isLoading, handleInputChange }) => {
   return (
     <div className="inmate-search-container">
       <div className="search-container">
-        <i className="search-icon">🔍</i> {/* Search icon */}
         <input
           type="text"
           placeholder="Cari nama WBP Lapas Kerobokan"
@@ -27,7 +26,7 @@ const InmateSearch = ({ query, setQuery, isLoading, handleInputChange }) => {
 
       {/* Show suggestions only when there is a query */}
       {!isLoading && query && filteredInmates.length === 0 && (
-        <p>No results found for "{query}".</p>
+        <p>Pencarian tidak ditemukan untuk: "{query}".</p>
       )}
 
       {/* Inmate Display */}
