@@ -11,18 +11,21 @@ const InmateSearch = ({ query, setQuery, isLoading, handleInputChange }) => {
   );
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Cari nama WBP Lapas Kerobokan"
-        value={query}
-        onChange={handleInputChange}
-        className="search-input"
-      />
+    <div className="inmate-search-container">
+      <div className="search-container">
+        <i className="search-icon">🔍</i> {/* Search icon */}
+        <input
+          type="text"
+          placeholder="Cari nama WBP Lapas Kerobokan"
+          value={query}
+          onChange={handleInputChange}
+          className="search-input"
+        />
+      </div>
 
       {isLoading && <div className="spinner"></div>}
 
-      {/* Only show suggestions if there is a query and results */}
+      {/* Show suggestions only when there is a query */}
       {!isLoading && query && filteredInmates.length === 0 && (
         <p>No results found for "{query}".</p>
       )}
@@ -34,10 +37,9 @@ const InmateSearch = ({ query, setQuery, isLoading, handleInputChange }) => {
             {filteredInmates.map((inmate) => (
               <li key={inmate.no_registrasi} className="suggestion-item">
                 <strong>Nama:</strong> {inmate.nama} <br />
-                <strong>No. Registrasi:</strong> {inmate.no_registrasi} <br />
-                <strong>Wisma - Kamar:</strong> {inmate.wisma} <br />
-                <strong>Kasus:</strong> {inmate.pidana} <br />
-                <strong>Tanggal Ekspirasi:</strong> {inmate.tanggal_ekspirasi} <br />
+                <strong>Wisma:</strong> {inmate.wisma} <br />
+                <strong>Case:</strong> {inmate.pidana} <br />
+                <strong>Expiration Date:</strong> {inmate.tanggal_ekspirasi} <br />
               </li>
             ))}
           </ul>
