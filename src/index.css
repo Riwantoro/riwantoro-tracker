@@ -1,25 +1,29 @@
 :root {
-  --background-color: #ffffff;
+  --background-color: #e0e5ec; /* Updated for neomorphic effect */
   --text-color: #000000;
-  --header-footer-bg: #ffffff; /* Instagram white */
+  --header-footer-bg: #ffffff;
   --header-footer-text: #000000;
   --input-border: #e0e0e0;
-  --input-focus-border: #ff3e3e; /* Instagram red */
+  --input-focus-border: #ff3e3e;
   --scrollable-bg: #f9f9f9;
-  --inmate-display-bg: #ffffff; /* Light mode background for inmate display */
-  --suggestion-hover-bg: #f0f0f0; /* Light mode hover background */
+  --inmate-display-bg: #ffffff;
+  --suggestion-hover-bg: #f0f0f0;
+  --neo-shadow-dark: #a3b1c6;
+  --neo-shadow-light: #ffffff;
 }
 
 body.dark-mode {
-  --background-color: #121212; /* Dark mode background */
+  --background-color: #2d3748; /* Updated for neomorphic effect */
   --text-color: #f0f0f0;
-  --header-footer-bg: #1e1e1e; /* Dark header/footer */
+  --header-footer-bg: #1e1e1e;
   --header-footer-text: #f0f0f0;
   --input-border: #444;
-  --input-focus-border: #90caf9; /* Light blue focus border for dark mode */
-  --scrollable-bg: #333; /* Dark background for scrollable areas */
-  --inmate-display-bg: #1e1e1e; /* Dark background for inmate display */
-  --suggestion-hover-bg: #444; /* Dark mode hover background */
+  --input-focus-border: #90caf9;
+  --scrollable-bg: #333;
+  --inmate-display-bg: #1e1e1e;
+  --suggestion-hover-bg: #444;
+  --neo-shadow-dark: #1e2532;
+  --neo-shadow-light: #3c4b63;
 }
 
 body {
@@ -31,7 +35,7 @@ body {
 
 .App {
   text-align: center;
-  padding: 1rem; /* Reduced padding for better fit */
+  padding: 1rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -45,7 +49,6 @@ body {
   border-radius: 8px;
 }
 
-/* Footer Styles */
 .App-footer {
   background-color: var(--header-footer-bg);
   color: var(--header-footer-text);
@@ -54,59 +57,65 @@ body {
   border-radius: 8px;
 }
 
-/* Search Input */
+/* Updated Search Input with Neomorphic Design */
 .search-input {
   width: 100%;
-  max-width: 400px; /* Adjusted width */
-  padding: 12px 12px 12px 40px; /* Add padding on the left for the icon */
-  margin-bottom: 10px;
-  border-radius: 25px; /* More rounded corners */
-  border: 1px solid var(--input-border);
+  max-width: 400px;
+  padding: 15px 15px 15px 45px;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  border: none;
   font-size: 16px;
-  transition: border 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23333333" viewBox="0 0 24 24" width="20" height="20"><path d="M10 2a8 8 0 0 0 0 16 7.935 7.935 0 0 0 4.707-1.585l5.485 5.485a1 1 0 0 0 1.414-1.414l-5.485-5.485A7.935 7.935 0 0 0 18 10a8 8 0 0 0-8-8zm0 14a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>');
+  transition: all 0.3s ease;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-shadow: 
+    inset 2px 2px 5px var(--neo-shadow-dark),
+    inset -5px -5px 10px var(--neo-shadow-light);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23808080" viewBox="0 0 24 24" width="18" height="18"><path d="M10 2a8 8 0 0 0 0 16 7.935 7.935 0 0 0 4.707-1.585l5.485 5.485a1 1 0 0 0 1.414-1.414l-5.485-5.485A7.935 7.935 0 0 0 18 10a8 8 0 0 0-8-8zm0 14a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>');
   background-repeat: no-repeat;
-  background-position: 12px center; /* Position the icon */
-  background-size: 20px; /* Size of the icon */
+  background-position: 15px center;
+  background-size: 18px;
 }
 
 .search-input:focus {
-  border-color: var(--input-focus-border);
-  box-shadow: 0 0 8px rgba(255, 62, 62, 0.5); /* Focus shadow */
-  background-color: #fff; /* Solid white background on focus */
+  outline: none;
+  box-shadow: 
+    -2px -2px 5px var(--neo-shadow-light),
+    2px 2px 5px var(--neo-shadow-dark);
 }
 
-/* Suggestions */
+/* Suggestions with Neomorphic Style */
 .suggestions {
   list-style-type: none;
   padding: 0;
   margin: 0 auto;
   max-height: 200px;
   overflow-y: auto;
-  border: 1px solid var(--input-border);
-  border-radius: 4px;
+  border: none;
+  border-radius: 15px;
   width: 100%;
   max-width: 400px;
+  background-color: var(--background-color);
+  box-shadow: 
+    inset 2px 2px 5px var(--neo-shadow-dark),
+    inset -5px -5px 10px var(--neo-shadow-light);
 }
 
 .suggestion-item {
   padding: 15px;
   cursor: pointer;
-  background-color: var(--scrollable-bg);
+  background-color: transparent;
   border-bottom: 1px solid var(--input-border);
   font-size: 14px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .suggestion-item:hover {
-  background-color: var(--suggestion-hover-bg); /* Light mode hover background */
-}
-
-/* Dark Mode Hover Background */
-body.dark-mode .suggestion-item:hover {
-  background-color: var(--suggestion-hover-bg); /* Dark mode hover background */
+  background-color: var(--suggestion-hover-bg);
+  box-shadow: 
+    -2px -2px 5px var(--neo-shadow-light),
+    2px 2px 5px var(--neo-shadow-dark);
 }
 
 /* Loading Spinner */
@@ -115,7 +124,7 @@ body.dark-mode .suggestion-item:hover {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border-left-color: #ff3e3e; /* Loading color */
+  border-left-color: #ff3e3e;
   animation: spin 1s linear infinite;
   margin: 20px auto;
 }
@@ -133,19 +142,20 @@ body.dark-mode .suggestion-item:hover {
   }
 
   .search-input {
-    font-size: 16px; /* Maintain font size */
-    padding: 10px 10px 10px 35px; /* Adjusted padding for mobile */
-    max-width: 80%; /* Make input narrower */
-    border-radius: 20px; /* Slightly more rounded corners */
+    font-size: 16px;
+    padding: 12px 12px 12px 40px;
+    max-width: 90%;
+    border-radius: 25px;
   }
 
   .suggestions {
     max-height: 150px;
+    max-width: 90%;
   }
 
   .suggestion-item {
-    padding: 10px;
-    font-size: 12px;
+    padding: 12px;
+    font-size: 14px;
   }
 }
 
@@ -154,7 +164,41 @@ body.dark-mode .suggestion-item:hover {
   max-height: 400px;
   overflow-y: auto;
   margin-top: 20px;
-  padding: 10px;
-  background-color: var(--inmate-display-bg); /* Use dark background in dark mode */
-  border-radius: 8px; /* Rounded corners */
+  padding: 20px;
+  background-color: var(--inmate-display-bg);
+  border-radius: 15px;
+  box-shadow: 
+    5px 5px 10px var(--neo-shadow-dark),
+    -5px -5px 10px var(--neo-shadow-light);
 }
+
+/* Neomorphic Button Style */
+.toggle-mode-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 
+    5px 5px 10px var(--neo-shadow-dark),
+    -5px -5px 10px var(--neo-shadow-light);
+}
+
+.toggle-mode-btn:hover {
+  box-shadow: 
+    2px 2px 5px var(--neo-shadow-dark),
+    -2px -2px 5px var(--neo-shadow-light);
+}
+
+.toggle-mode-btn:active {
+  box-shadow: 
+    inset 2px 2px 5px var(--neo-shadow-dark),
+    inset -2px -2px 5px var(--neo-shadow-light);
+}
+
