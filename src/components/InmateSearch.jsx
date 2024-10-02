@@ -5,9 +5,10 @@ const InmateSearch = ({ query, setQuery, isLoading, handleInputChange }) => {
   const dateKey = Object.keys(inmatesData)[0]; // Get the first date key (e.g., "23_09_2024")
   const inmateList = inmatesData[dateKey]; // Access the array of inmates under the date key
 
-  // Filter inmates based on the search query (by 'nama')
+  // Filter inmates based on the search query (by 'nama' or 'wisma')
   const filteredInmates = inmateList.filter((inmate) =>
-    inmate.nama.toLowerCase().includes(query.toLowerCase())
+    inmate.nama.toLowerCase().includes(query.toLowerCase()) ||
+    inmate.wisma.toLowerCase().includes(query.toLowerCase())
   );
 
   return (
@@ -15,7 +16,7 @@ const InmateSearch = ({ query, setQuery, isLoading, handleInputChange }) => {
       <div className="search-container">
         <input
           type="text"
-          placeholder="Cari nama WBP Lapas Kerobokan"
+          placeholder="Cari nama atau wisma WBP Lapas Kerobokan"
           value={query}
           onChange={handleInputChange}
           className="search-input"
